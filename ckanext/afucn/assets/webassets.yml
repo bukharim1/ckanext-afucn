@@ -1,0 +1,14 @@
+# afucn-js:
+#   filter: rjsmin
+#   output: ckanext-afucn/%(version)s-afucn.js
+#   contents:
+#     - js/afucn.js
+#   extra:
+#     preload:
+#       - base/main
+
+# afucn-css:
+#   filter: cssrewrite
+#   output: ckanext-afucn/%(version)s-afucn.css
+#   contents:
+#     - css/afucn.css
