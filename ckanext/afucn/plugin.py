@@ -4,8 +4,8 @@ import ckan.plugins.toolkit as toolkit
 
 class AfucnPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IFacets)
     
-
     # IConfigurer
 
     def update_config(self, config_):
@@ -13,4 +13,43 @@ class AfucnPlugin(plugins.SingletonPlugin):
         toolkit.add_public_directory(config_, "public")
         toolkit.add_resource("assets", "afucn")
 
+    # IFacets
+
+    def dataset_facets(self, facets_dict, package_type):
+        '''Add new search facet (filter) for datasets.
+        This must be a field in the dataset (or organization or
+        group if you're modifying those search facets, just change the function).
+        '''
+        # This keeps the existing facet order.
+        facets_dict['country'] = plugins.toolkit._('Country')
+        facets_dict['organization'] = plugins.toolkit._('Organization')
+        facets_dict['groups'] = plugins.toolkit._('Groups')
+        facets_dict['tags'] = plugins.toolkit._('tags')
+        facets_dict['res_format'] = plugins.toolkit._('Format')
+        facets_dict['license_id'] = plugins.toolkit._('License')
+
+        return facets_dict
+
+    def group_facets(self, facets_dict, group_type, package_type):
+
+        # This keeps the existing facet order.
+        facets_dict['country'] = plugins.toolkit._('Country')
+        facets_dict['organization'] = plugins.toolkit._('Organization')
+        facets_dict['groups'] = plugins.toolkit._('Groups')
+        facets_dict['tags'] = plugins.toolkit._('tags')
+        facets_dict['res_format'] = plugins.toolkit._('Format')
+        facets_dict['license_id'] = plugins.toolkit._('License')
+        
+        return facets_dict
     
+    def organization_facets(self, facets_dict, organization_type, package_type):
+
+        # This keeps the existing facet order.
+        facets_dict['country'] = plugins.toolkit._('Country')
+        facets_dict['organization'] = plugins.toolkit._('Organization')
+        facets_dict['groups'] = plugins.toolkit._('Groups')
+        facets_dict['tags'] = plugins.toolkit._('tags')
+        facets_dict['res_format'] = plugins.toolkit._('Format')
+        facets_dict['license_id'] = plugins.toolkit._('License')
+        
+        return facets_dict
