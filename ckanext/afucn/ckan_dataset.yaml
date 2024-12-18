@@ -143,8 +143,17 @@ dataset_fields:
   label: Organization
   preset: dataset_organization
 
+- field_name: programme
+  label: Programme
+
+- field_name: disease
+  label: Disease
+
+- field_name: indicator
+  label: Indicator
+
 - field_name: url
-  label: Source
+  label: Data Source
   form_placeholder: http://example.com/dataset.json
   display_property: foaf:homepage
   display_snippet: link.html
